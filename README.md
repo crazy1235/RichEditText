@@ -4,11 +4,13 @@
 
 ## ScreenShot
 
-    <img width="322" height="553" src="./screenshot/screenshot.png" />
+    <img width="322" height="553" src="./screenshot/screenshot.gif" />
     
 ## How to use?
 
     It's just like the regular EditText..
+    
+    
     
 ```
     <com.jacksen.richedittext.RichEditText
@@ -22,21 +24,25 @@
         app:type="phone" />
        
 ```
+
+
      Remember you should the following code into you xml root layout 
      
 ```
      xmlns:app="http://schemas.android.com/apk/res-auto"
      
 ```
+
+
      you can get the original text use this code:
      
 ```
-        richEditText.getRealText();
+     richEditText.getRealText();
         
 ```
 
      
 ## about me
 
-    <a href="http://blog.csdn.net/crazy1235">有用的提示</a>
+    <a href="http://blog.csdn.net/crazy1235">CSDN Blog</a>
 
