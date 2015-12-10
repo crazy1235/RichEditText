@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="phoneEditText">
+        <attr name="separator" format="string">
+            <enum name="space" value="0" />
+            <enum name="hyphen" value="1" />
+            <enum name="bias" value="2" />
+        </attr>
+        <attr name="sepStyle" format="integer" />
+    </declare-styleable>
+
+</resources>
