@@ -16,22 +16,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:digits="0123456789"
+        android:hint="phone number"
         app:separator="space"
         app:splitStyle="335"
         app:type="phone" />
 
-
-    <com.jacksen.richedittext.RichEditText
-        android:id="@+id/idcard_edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:separator="hyphen"
-        app:splitStyle="684"
-        app:type="idCard" />
-
     <com.jacksen.richedittext.RichEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="请输入手机号"
+        app:separator="bias"
+        app:splitStyle="344"
+        app:type="phone" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.jacksen.richedittext.RichEditText
+            android:id="@+id/idcard_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="id card number"
+            app:separator="hyphen"
+            app:splitStyle="684"
+            app:type="idCard" />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <com.jacksen.richedittext.RichEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:hint="请输入"
         app:type="none" />
 
