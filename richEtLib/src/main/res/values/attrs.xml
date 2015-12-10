@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="phoneEditText">
+    <declare-styleable name="RichEditText">
+        <attr name="type" format="string">
+            <enum name="phone" value="0" />
+            <enum name="idCard" value="1" />
+            <enum name="none" value="2" />
+        </attr>
         <attr name="separator" format="string">
             <enum name="space" value="0" />
             <enum name="hyphen" value="1" />
             <enum name="bias" value="2" />
         </attr>
-        <attr name="sepStyle" format="integer" />
+        <attr name="splitStyle" format="integer" />
     </declare-styleable>
 
 </resources>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Rich EditText Library</string>
+    <string name="hint_phone">请输入手机号码</string>
+    <string name="hint_inCard">请输入身份证号</string>
 </resources>

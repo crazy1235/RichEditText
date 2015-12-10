@@ -11,13 +11,34 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.jacksen.richedittext.MainActivity">
 
-    <com.jacksen.richedittext.PhoneEditText
+    <com.jacksen.richedittext.RichEditText
         android:id="@+id/phone_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:digits="0123456789 "
-        android:hint="请输入手机号"
-        android:inputType="phone"
-        app:sepStyle="335"
-        app:separator="space" />
+        android:digits="0123456789"
+        app:separator="space"
+        app:splitStyle="335"
+        app:type="phone" />
+
+
+    <com.jacksen.richedittext.RichEditText
+        android:id="@+id/idcard_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:separator="hyphen"
+        app:splitStyle="684"
+        app:type="idCard" />
+
+    <com.jacksen.richedittext.RichEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入"
+        app:type="none" />
+
+    <Button
+        android:id="@+id/test_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="button" />
 </LinearLayout>
