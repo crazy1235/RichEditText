@@ -4,7 +4,7 @@ RichEditText is a custom EditText to split the input phone number or IdCard numb
 
 ## ScreenShot
 
-![screenshot](https://github.com/crazy1235/RichEditText/tree/master/screenshot/screenshot.gif)
+![screenshot](https://github.com/crazy1235/RichEditText/blob/master/screenshot/screenshot.gif)
 
     
 ## How to use?
@@ -43,6 +43,7 @@ you can get the original text use this code:
 
      
 ## about me
+
 
 [CSDN Blog](http://blog.csdn.net/crazy1235)
 
