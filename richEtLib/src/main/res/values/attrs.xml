@@ -13,6 +13,11 @@
             <enum name="bias" value="2" />
         </attr>
         <attr name="splitStyle" format="integer" />
+
+    </declare-styleable>
+
+    <declare-styleable name="ClearEditText">
+        <attr name="clear" format="boolean" />
     </declare-styleable>
 
 </resources>

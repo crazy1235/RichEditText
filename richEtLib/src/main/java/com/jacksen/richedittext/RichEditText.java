@@ -207,4 +207,5 @@ public class RichEditText extends EditText {
     public String getRealText() {
         return getText().toString().replaceAll(separator, "");
     }
+
 }
