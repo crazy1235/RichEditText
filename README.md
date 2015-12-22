@@ -11,6 +11,21 @@ And the RichEditText also can do it.
     
 ## How to use?
 
+If you use Android Studio, you should add the following code in build.gradle:
+
+```
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+compile 'com.github.crazy1235:RichEditText:v2.0'
+
+```
+
+
 ### RichEditText
 
 It's just like the regular EditText..    
