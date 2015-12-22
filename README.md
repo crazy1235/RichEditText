@@ -11,7 +11,7 @@ And the RichEditText also can do it.
     
 ## How to use?
 
-If you use Android Studio, you should add the following code in build.gradle:
+Add it in your root build.gradle at the end of repositories:    
 
 ```
 allprojects {
@@ -21,10 +21,15 @@ allprojects {
     }
 }
 
-compile 'com.github.crazy1235:RichEditText:v2.0'
 
 ```
 
+Add the dependency
+
+```
+    compile 'com.github.crazy1235:RichEditText:v2.0'
+
+```
 
 ### RichEditText
 
