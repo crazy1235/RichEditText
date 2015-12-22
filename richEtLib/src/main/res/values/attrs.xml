@@ -18,6 +18,9 @@
 
     <declare-styleable name="ClearEditText">
         <attr name="clear" format="boolean" />
+        <attr name="clear_icon" format="reference" />
+        <attr name="clear_icon_up" format="reference" />
+        <attr name="clear_icon_down" format="reference" />
     </declare-styleable>
 
 </resources>

@@ -1,6 +1,8 @@
 # RichEditText
 
 RichEditText is a custom EditText to split the input phone number or IdCard number whit " ", "/" or "-".
+ClearEditText is a custom EditText to help you clear all the input text quickly.
+And the RichEditText also can do it.
 
 ## ScreenShot
 
@@ -9,6 +11,7 @@ RichEditText is a custom EditText to split the input phone number or IdCard numb
     
 ## How to use?
 
+### RichEditText
 
 It's just like the regular EditText..    
     
@@ -39,6 +42,33 @@ you can get the original text use this code:
 ```
      richEditText.getRealText();
         
+```
+
+### ClearEditText
+
+```
+    <com.jacksen.richedittext.ClearEditText
+        android:id="@+id/clear_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:clear="true"
+        app:clear_icon_down="@drawable/clear_input_down"
+        app:clear_icon_up="@drawable/clear_input" />
+
+```
+
+```
+    <com.jacksen.richedittext.RichEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="please input your id card number."
+        app:clear="true"
+        app:separator="hyphen"
+        app:splitStyle="684"
+        app:type="idCard" />
+
 ```
 
      

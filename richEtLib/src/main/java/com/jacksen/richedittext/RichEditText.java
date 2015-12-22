@@ -6,12 +6,11 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.method.DigitsKeyListener;
 import android.util.AttributeSet;
-import android.widget.EditText;
 
 /**
  * Created by jacksen on 2015/12/9.
  */
-public class RichEditText extends EditText {
+public class RichEditText extends ClearEditText {
 
 
     private String separator = Constants.SPACE;

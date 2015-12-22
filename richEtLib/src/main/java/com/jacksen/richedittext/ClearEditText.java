@@ -3,6 +3,7 @@ package com.jacksen.richedittext;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.StateListDrawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.AppCompatEditText;
@@ -27,6 +28,10 @@ public class ClearEditText extends AppCompatEditText implements View.OnFocusChan
      */
     private Drawable clearDrawable = null;
 
+    private Drawable clearDrawable_down = null;
+
+    private Drawable clearDrawable_up = null;
+
     public ClearEditText(Context context) {
         this(context, null);
     }
@@ -37,13 +42,18 @@ public class ClearEditText extends AppCompatEditText implements View.OnFocusChan
 
     public ClearEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ClearEditText, defStyleAttr, 0);
         showClearIcon = typedArray.getBoolean(R.styleable.ClearEditText_clear, false);
 
         if (!showClearIcon) {
             return;
         }
+
+        clearDrawable = typedArray.getDrawable(R.styleable.ClearEditText_clear_icon);
+        clearDrawable_up = typedArray.getDrawable(R.styleable.ClearEditText_clear_icon_up);
+        clearDrawable_down = typedArray.getDrawable(R.styleable.ClearEditText_clear_icon_down);
+
+        typedArray.recycle();
 
         this.setOnFocusChangeListener(this);
         this.setOnTouchListener(this);
@@ -55,13 +65,35 @@ public class ClearEditText extends AppCompatEditText implements View.OnFocusChan
      *
      */
     private void init(Context context) {
-        Drawable drawable = ContextCompat.getDrawable(context, R.drawable.abc_ic_clear_mtrl_alpha);
-        Drawable wrappedDrawable = DrawableCompat.wrap(drawable);
-        DrawableCompat.setTint(wrappedDrawable, getCurrentHintTextColor());
-        clearDrawable = wrappedDrawable;
-        clearDrawable.setBounds(0, 0, clearDrawable.getIntrinsicHeight(), clearDrawable.getIntrinsicWidth());
+        if (clearDrawable != null) {
+            return;
+        }
+        if (clearDrawable_up != null && clearDrawable_down != null) {
+            clearDrawable = getStateListDrawable();
+        } else {
+            if (clearDrawable_up != null) {
+                clearDrawable = clearDrawable_up;
+            } else if (clearDrawable_down != null) {
+                clearDrawable = clearDrawable_down;
+            } else {
+                Drawable drawable = ContextCompat.getDrawable(context, R.drawable.abc_ic_clear_mtrl_alpha);
+                Drawable wrappedDrawable = DrawableCompat.wrap(drawable);
+                DrawableCompat.setTint(wrappedDrawable, getCurrentHintTextColor());
+                clearDrawable = wrappedDrawable;
+            }
+        }
+    }
 
-//        showClearIcon(true);
+    /**
+     * @return stateListDrawable --> selector
+     */
+    private StateListDrawable getStateListDrawable() {
+        StateListDrawable sld = new StateListDrawable();
+        sld.addState(new int[]{android.R.attr.state_pressed}, clearDrawable_down);
+        sld.addState(new int[]{android.R.attr.state_checked}, clearDrawable_down);
+        sld.addState(new int[]{android.R.attr.state_selected}, clearDrawable_down);
+        sld.addState(new int[]{}, clearDrawable_up);
+        return sld;
     }
 
     /**
@@ -70,8 +102,9 @@ public class ClearEditText extends AppCompatEditText implements View.OnFocusChan
     private void showClearIcon(boolean flag) {
         clearDrawable.setVisible(flag, false);
         Drawable[] compoundDrawables = getCompoundDrawables();
-        this.setCompoundDrawables(compoundDrawables[0], compoundDrawables[1],
+        this.setCompoundDrawablesWithIntrinsicBounds(compoundDrawables[0], compoundDrawables[1],
                 flag ? clearDrawable : null, compoundDrawables[3]);
+        this.setCompoundDrawablePadding(10);
     }
 
     @Override
@@ -87,7 +120,12 @@ public class ClearEditText extends AppCompatEditText implements View.OnFocusChan
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         float x = event.getX();
-        if (clearDrawable.isVisible() && getWidth() - getPaddingRight() - clearDrawable.getIntrinsicWidth() < x) {
+        float y = event.getY();
+        if (clearDrawable.isVisible()
+                && getWidth() - getPaddingRight() - clearDrawable.getIntrinsicWidth() < x
+                && getWidth() - getPaddingRight() > x
+                && getHeight() - getPaddingBottom() - clearDrawable.getIntrinsicHeight() < y
+                && getHeight() - getPaddingBottom() > y) {
             if (MotionEvent.ACTION_UP == event.getAction()) {
                 setText("");
             }
