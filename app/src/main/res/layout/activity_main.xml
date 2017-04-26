@@ -65,9 +65,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/ic_phone"
+            android:drawablePadding="50dp"
+            android:drawableStart="@drawable/ic_phone"
             android:hint="please input sth."
-            app:clear="true"
-            app:clear_icon="@drawable/selector_clear_icon" />
+            android:inputType="phone"
+            app:clear="true" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
