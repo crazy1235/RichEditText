@@ -5,6 +5,7 @@ import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 //        phoneEditText.setError("12");
-        phoneEditText.getText().toString();
+        Log.d("MainActivity", phoneEditText.getText().toString());
 
 //        testBtn.setBackgroundDrawable(getStateListDrawable());
 

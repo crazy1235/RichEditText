@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:drawableLeft="@drawable/ic_phone"
-            android:drawablePadding="50dp"
+            android:drawablePadding="20dp"
             android:drawableStart="@drawable/ic_phone"
             android:hint="please input sth."
             android:inputType="phone"

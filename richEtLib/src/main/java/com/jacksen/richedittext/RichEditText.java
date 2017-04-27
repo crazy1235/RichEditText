@@ -16,7 +16,7 @@ public class RichEditText extends ClearEditText {
     private String separator = Constants.SPACE;
 
     /**
-     * 分割类型 eg:335 、344
+     * eg:335 344
      */
     private int splitStyle = 0;
 
@@ -97,7 +97,7 @@ public class RichEditText extends ClearEditText {
     }
 
     /**
-     * inputType="number" 的话是没法插入空格的
+     * when inputType="number" it cannot insert whitespace
      */
     private void init() {
         switch (type) {

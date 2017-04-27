@@ -10,6 +10,7 @@ import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -32,8 +33,6 @@ public class ClearEditText extends AppCompatEditText implements View.OnFocusChan
 
     private Drawable clearDrawable_up = null;
 
-    private int drawablePadding = 0;
-
     public ClearEditText(Context context) {
         this(context, null);
     }
@@ -44,12 +43,6 @@ public class ClearEditText extends AppCompatEditText implements View.OnFocusChan
 
     public ClearEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
-        // get the drawablePadding value
-        TypedArray ta = context.obtainStyledAttributes(
-                attrs, com.android.internal.R.styleable.TextView, defStyleAttr, 0);
-        drawablePadding = ta.getDimensionPixelSize(com.android.internal.R.styleable.TextView_drawablePadding, drawablePadding);
-        ta.recycle();
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ClearEditText, defStyleAttr, 0);
         showClearIcon = typedArray.getBoolean(R.styleable.ClearEditText_clear, false);
@@ -114,7 +107,7 @@ public class ClearEditText extends AppCompatEditText implements View.OnFocusChan
         Drawable[] compoundDrawables = getCompoundDrawables();
         this.setCompoundDrawablesWithIntrinsicBounds(compoundDrawables[0], compoundDrawables[1],
                 flag ? clearDrawable : null, compoundDrawables[3]);
-        this.setCompoundDrawablePadding(drawablePadding);
+        this.setCompoundDrawablePadding(getCompoundDrawablePadding());
     }
 
     @Override
