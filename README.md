@@ -27,7 +27,7 @@ allprojects {
 Add the dependency
 
 ```
-    compile 'com.github.crazy1235:RichEditText:v2.0'
+    compile 'com.github.crazy1235:RichEditText:v3.0'
 
 ```
 
